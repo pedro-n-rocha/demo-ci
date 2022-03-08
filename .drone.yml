@@ -1,0 +1,29 @@
+---
+kind: pipeline
+type: kubernetes
+name: default
+
+
+steps:
+  - name: greeting
+    image: alpine
+    commands:
+    - echo hello
+    - echo world
+
+  - name: "Build Docker Image and push "
+    image: plugins/docker
+    pull: if-not-exists
+    settings:
+      insecure: true
+      registry: "amalia-cluster-master:5000"
+      repo: "amalia-cluster-master:5000/demo-ci"
+      tags:
+        - ${DRONE_COMMIT_BRANCH}
+    when:
+      event:
+        - push
+
+
+
+
