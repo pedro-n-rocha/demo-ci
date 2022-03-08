@@ -21,6 +21,8 @@ steps:
       tags:
         - ${DRONE_COMMIT_SHA}
     when:
+     branch:
+     - master
      event:
      - push
 
