@@ -19,10 +19,10 @@ steps:
       registry: "amalia-cluster-master:5000"
       repo: "amalia-cluster-master:5000/demo-ci"
       tags:
-        - ${DRONE_COMMIT_BRANCH}
-          #    when:
-          #      event:
-          #        - push
+        - ${DRONE_COMMIT_SHA}
+    when:
+     event:
+     - push
 
 
 
