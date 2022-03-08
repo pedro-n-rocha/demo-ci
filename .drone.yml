@@ -20,9 +20,9 @@ steps:
       repo: "amalia-cluster-master:5000/demo-ci"
       tags:
         - ${DRONE_COMMIT_BRANCH}
-    when:
-      event:
-        - push
+          #    when:
+          #      event:
+          #        - push
 
 
 
